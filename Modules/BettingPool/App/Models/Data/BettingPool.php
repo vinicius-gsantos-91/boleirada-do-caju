@@ -4,10 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\BettingPool\App\Models\Data;
 
+use Illuminate\Database\Eloquent\Model;
 use Modules\BettingPool\Api\BettingPoolInterface;
 
-class BettingPool implements BettingPoolInterface
+class BettingPool extends Model implements BettingPoolInterface
 {
+    protected $table = BettingPoolInterface::TABLE_NAME;
+
+    protected $fillable = [
+        BettingPoolInterface::NAME,
+        BettingPoolInterface::TYPE,
+        BettingPoolInterface::CODE
+    ];
+
     /**
      * Retrieves betting pool name
      *
@@ -15,7 +24,7 @@ class BettingPool implements BettingPoolInterface
      */
     public function getName(): string
     {
-        // TODO: Implement getName() method.
+        return $this->name;
     }
 
     /**
@@ -26,7 +35,8 @@ class BettingPool implements BettingPoolInterface
      */
     public function setName(string $name): BettingPoolInterface
     {
-        // TODO: Implement setName() method.
+        $this->name = $name;
+        return $this;
     }
 
     /**
@@ -36,7 +46,7 @@ class BettingPool implements BettingPoolInterface
      */
     public function getType(): string
     {
-        // TODO: Implement getType() method.
+        return $this->type;
     }
 
     /**
@@ -47,7 +57,8 @@ class BettingPool implements BettingPoolInterface
      */
     public function setType(string $type): BettingPoolInterface
     {
-        // TODO: Implement setType() method.
+        $this->type = $type;
+        return $this;
     }
 
     /**
@@ -57,7 +68,7 @@ class BettingPool implements BettingPoolInterface
      */
     public function getCode(): string
     {
-        // TODO: Implement getCode() method.
+        return $this->code;
     }
 
     /**
@@ -68,6 +79,7 @@ class BettingPool implements BettingPoolInterface
      */
     public function setCode(string $code): BettingPoolInterface
     {
-        // TODO: Implement setCode() method.
+        $this->code = $code;
+        return $this;
     }
 }
