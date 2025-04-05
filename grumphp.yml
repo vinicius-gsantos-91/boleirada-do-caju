@@ -1,0 +1,14 @@
+grumphp:
+    tasks:
+        phpcs:
+            standard: PSR12
+            ignore_patterns:
+                - vendor
+                - tests/_support/_generated
+            triggered_by: [php]
+        phpmd:
+            ruleset: ['cleancode', 'codesize', 'naming', 'unusedcode']
+            exclude: ['tests', 'database', 'vendor']
+            triggered_by: ['php']
+    parallel:
+        enabled: false

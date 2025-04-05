@@ -1,0 +1,11 @@
+{
+    "name": "BettingPool",
+    "alias": "bettingpool",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\BettingPool\\App\\Providers\\BettingPoolServiceProvider"
+    ],
+    "files": []
+}
