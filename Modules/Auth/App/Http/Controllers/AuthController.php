@@ -49,4 +49,14 @@ class AuthController extends Controller
         $request->user()->tokens()->delete();
         return response()->json(['message' => 'Successfully logged out']);
     }
+
+    public function showLoginForm()
+    {
+        return view('auth::login');
+    }
+
+    public function showRegisterForm()
+    {
+        return view('auth::index');
+    }
 }
