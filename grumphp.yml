@@ -6,6 +6,7 @@ grumphp:
                 - vendor
                 - tests/_support/_generated
                 - /var/www/_ide_helper
+                - /Modules/*/resources
             triggered_by: [php]
         phpmd:
             ruleset: ['cleancode', 'codesize', 'naming', 'unusedcode']
