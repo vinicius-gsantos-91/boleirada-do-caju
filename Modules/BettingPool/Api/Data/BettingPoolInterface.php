@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\BettingPool\Api;
+namespace Modules\BettingPool\Api\Data;
 
 interface BettingPoolInterface
 {

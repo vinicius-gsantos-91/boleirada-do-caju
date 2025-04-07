@@ -5,10 +5,13 @@ grumphp:
             ignore_patterns:
                 - vendor
                 - tests/_support/_generated
+                - /var/www/_ide_helper
             triggered_by: [php]
         phpmd:
             ruleset: ['cleancode', 'codesize', 'naming', 'unusedcode']
             exclude: ['tests', 'database', 'vendor']
             triggered_by: ['php']
+            whitelist_patterns:
+                - /var/www/_ide_helper
     parallel:
         enabled: false

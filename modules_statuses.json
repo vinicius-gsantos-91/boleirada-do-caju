@@ -1,5 +1,6 @@
 {
     "Auth": true,
     "User": true,
-    "BettingPool": true
+    "BettingPool": true,
+    "Dashboard": true
 }

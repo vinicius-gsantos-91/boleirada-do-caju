@@ -5,8 +5,22 @@ declare(strict_types=1);
 namespace Modules\BettingPool\App\Models\Data;
 
 use Illuminate\Database\Eloquent\Model;
-use Modules\BettingPool\Api\BettingPoolInterface;
+use Modules\BettingPool\Api\Data\BettingPoolInterface;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $code
+ * @property string $type
+ * @method static \Illuminate\Database\Eloquent\Builder|BettingPool newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BettingPool newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BettingPool query()
+ * @method static \Illuminate\Database\Eloquent\Builder|BettingPool whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BettingPool whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BettingPool whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BettingPool whereType($value)
+ * @mixin \Eloquent
+ */
 class BettingPool extends Model implements BettingPoolInterface
 {
     protected $table = BettingPoolInterface::TABLE_NAME;
