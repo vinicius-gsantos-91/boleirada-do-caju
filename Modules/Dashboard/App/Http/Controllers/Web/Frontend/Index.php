@@ -6,16 +6,26 @@ namespace Modules\Dashboard\App\Http\Controllers\Web\Frontend;
 
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class Index extends Controller
 {
     /**
      * Generates dashboard page
      *
-     * @return View
+     * @param Request $request
+     * @return RedirectResponse|View
      */
-    public function execute(): View
+    public function execute(Request $request): RedirectResponse|View
     {
+        if (!Auth::check()) {
+            $request->session()->flash('error', 'Realize o login para acessar o dashboard!');
+            return Redirect::intended('/auth/login');
+        }
+
         return view('dashboard::index');
     }
 }

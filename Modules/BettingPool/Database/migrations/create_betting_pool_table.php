@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string(BettingPoolInterface::NAME)->nullable(false);
             $table->string(BettingPoolInterface::CODE)->unique()->nullable(false);
             $table->string(BettingPoolInterface::TYPE)->nullable(false);
+            $table->timestamps();
         });
     }
 

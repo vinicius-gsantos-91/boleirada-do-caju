@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Auth\App\Http\Controllers\AuthController;
 use Modules\Auth\App\Http\Controllers\Web\frontend\LoginForm;
 use Modules\Auth\App\Http\Controllers\Web\frontend\LoginPost;
 use Modules\Auth\App\Http\Controllers\Web\frontend\RegisterForm;
