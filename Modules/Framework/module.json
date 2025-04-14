@@ -1,0 +1,11 @@
+{
+    "name": "Framework",
+    "alias": "framework",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Framework\\App\\Providers\\FrameworkServiceProvider"
+    ],
+    "files": []
+}
