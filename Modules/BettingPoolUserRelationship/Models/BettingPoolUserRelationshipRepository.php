@@ -8,6 +8,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Modules\BettingPoolUserRelationship\Api\BettingPoolUserRelationshipRepositoryInterface;
 use Modules\BettingPoolUserRelationship\Api\Data\BettingPoolUserRelationshipInterface;
 use Modules\BettingPoolUserRelationship\Models\Data\BettingPoolUserRelationship;
+use Illuminate\Database\Eloquent\Collection;
 
 class BettingPoolUserRelationshipRepository implements BettingPoolUserRelationshipRepositoryInterface
 {
@@ -34,9 +35,9 @@ class BettingPoolUserRelationshipRepository implements BettingPoolUserRelationsh
      * @param array $filters
      * @param int $paginate
      * @param int $page
-     * @return LengthAwarePaginator
+     * @return LengthAwarePaginator|Collection
      */
-    public function getList(array $filters, int $paginate = 10, int $page = 0): LengthAwarePaginator
+    public function getList(array $filters, int $paginate = 10, int $page = 0): LengthAwarePaginator|Collection
     {
         if (!empty($filters[BettingPoolUserRelationshipInterface::BETTING_POOL_ID])) {
             return BettingPoolUserRelationship::where(
