@@ -2,5 +2,7 @@
     "Auth": true,
     "User": true,
     "BettingPool": true,
-    "Dashboard": true
+    "Dashboard": true,
+    "BettingPoolUserRelationship": true,
+    "Framework": true
 }

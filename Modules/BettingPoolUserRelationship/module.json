@@ -1,0 +1,11 @@
+{
+    "name": "BettingPoolUserRelationship",
+    "alias": "bettingpooluserrelationship",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\BettingPoolUserRelationship\\App\\Providers\\BettingPoolUserRelationshipServiceProvider"
+    ],
+    "files": []
+}
