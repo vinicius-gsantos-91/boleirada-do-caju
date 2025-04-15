@@ -55,4 +55,15 @@ class BettingPoolUserRelationshipRepository implements BettingPoolUserRelationsh
 
         return BettingPoolUserRelationship::all()->forPage($page, $paginate);
     }
+
+    /**
+     * Retrieve betting pool list by user id
+     *
+     * @param int $id
+     * @return LengthAwarePaginator
+     */
+    public function getListByUser(int $id): LengthAwarePaginator
+    {
+        return $this->getList([BettingPoolUserRelationshipInterface::USER_ID => $id]);
+    }
 }

@@ -24,6 +24,7 @@ use Modules\BettingPoolUserRelationship\Api\Data\BettingPoolUserRelationshipInte
  */
 class BettingPoolUserRelationship extends Model implements BettingPoolUserRelationshipInterface
 {
+    public $timestamps = false;
     protected $table = BettingPoolUserRelationshipInterface::TABLE_NAME;
     protected $fillable = [
         BettingPoolUserRelationshipInterface::BETTING_POOL_ID,

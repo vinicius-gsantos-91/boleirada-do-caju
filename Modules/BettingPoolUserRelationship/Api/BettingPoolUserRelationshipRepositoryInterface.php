@@ -26,4 +26,12 @@ interface BettingPoolUserRelationshipRepositoryInterface
      * @return LengthAwarePaginator|Collection
      */
     public function getList(array $filters, int $paginate, int $page = 0): LengthAwarePaginator|Collection;
+
+    /**
+     * Retrieve betting pool list by user id
+     *
+     * @param int $id
+     * @return LengthAwarePaginator
+     */
+    public function getListByUser(int $id): LengthAwarePaginator;
 }

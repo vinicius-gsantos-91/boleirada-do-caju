@@ -14,6 +14,7 @@ use Modules\BettingPoolUserRelationship\Api\Data\BettingPoolUserRelationshipInte
 use Illuminate\Support\Facades\Auth;
 use Modules\BettingPoolUserRelationship\Models\Data\BettingPoolUserRelationship;
 
+//TODO refactor class to isolate validations
 class JoinBettingPool
 {
     public function __construct(

@@ -58,6 +58,13 @@
             </div>
         </div>
     </div>
+    <div>
+        @foreach($bettingPoolList as $bettingPool)
+            <span>Nome: {{$bettingPool['name']}}</span>
+            <span>Posiçao: {{$bettingPool['position']}}</span>
+            <span>Pontuaçao: {{$bettingPool['score']}}</span>
+        @endforeach
+    </div>
 
 @endsection
 @section('scripts')
