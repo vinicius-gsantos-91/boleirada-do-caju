@@ -10,9 +10,15 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Modules\BettingPoolUserRelationship\Api\BettingPoolUserRelationshipRepositoryInterface;
 
 class Index extends Controller
 {
+    public function __construct(
+        private readonly BettingPoolUserRelationshipRepositoryInterface $bettingPoolUserRelationshipRepository
+    ) {
+    }
+
     /**
      * Generates dashboard page
      *
@@ -26,6 +32,11 @@ class Index extends Controller
             return Redirect::intended('/auth/login');
         }
 
-        return view('dashboard::index');
+        return view(
+            'dashboard::index',
+            [
+                'bettingPoolList' => $this->bettingPoolUserRelationshipRepository->getListByUser(Auth::user()->id)
+            ]
+        );
     }
 }
