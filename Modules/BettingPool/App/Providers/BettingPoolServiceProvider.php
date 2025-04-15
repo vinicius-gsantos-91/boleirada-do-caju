@@ -4,21 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\BettingPool\App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Modules\BettingPool\Api\BettingPoolRepositoryInterface;
 use Modules\BettingPool\Api\Data\BettingPoolInterface;
 use Modules\BettingPool\App\Models\BettingPoolRepository;
 use Modules\BettingPool\App\Models\Data\BettingPool;
+use Modules\Framework\App\Model\ModuleBaseFiles\AbstractServiceProvider;
 
-class BettingPoolServiceProvider extends ServiceProvider
+class BettingPoolServiceProvider extends AbstractServiceProvider
 {
     protected string $moduleName = 'BettingPool';
     protected string $moduleNameLower = 'bettingpool';
-
-    public function boot(): void
-    {
-        $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/migrations'));
-    }
 
     public function register(): void
     {

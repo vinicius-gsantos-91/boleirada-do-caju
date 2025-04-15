@@ -1,6 +1,11 @@
 @extends('auth::layouts.master')
 
 @section('content')
+    <div>
+        @if(session('success'))
+          <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+    </div>
 
 <section class="bg-light">
     <div class="container">

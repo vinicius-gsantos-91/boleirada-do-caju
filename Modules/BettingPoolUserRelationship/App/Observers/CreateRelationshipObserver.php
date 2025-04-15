@@ -20,11 +20,12 @@ class CreateRelationshipObserver
      */
     public function created(BettingPool $subject): void
     {
-        $lastDocument = $this->bettingPoolUserRelationshipRepository->getList([])->count() > 0
-            ? BettingPoolUserRelationship::all()->last()
-            : null;
-
         $user = Auth::user();
+
+        $lastDocument = $this->bettingPoolUserRelationshipRepository->getList([])->count() > 0
+            ? BettingPoolUserRelationship::all()
+                ->where(BettingPoolUserRelationshipInterface::USER_ID, $user->id)->last()
+            : null;
 
         $data = [
             BettingPoolUserRelationshipInterface::BETTING_POOL_ID => $subject->id,
