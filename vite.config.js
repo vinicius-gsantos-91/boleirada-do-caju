@@ -7,7 +7,8 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
-                'Modules/Dashboard/resources/assets/js/create-betting-pool-modal.js'
+                'Modules/Dashboard/resources/assets/js/create-betting-pool-modal.js',
+                'Modules/Dashboard/resources/assets/js/join-betting-pool-modal.js'
             ],
             refresh: true,
         }),

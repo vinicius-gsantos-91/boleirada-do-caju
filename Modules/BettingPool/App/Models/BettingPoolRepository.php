@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\BettingPool\App\Models;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Modules\BettingPool\Api\BettingPoolRepositoryInterface;
 use Modules\BettingPool\Api\Data\BettingPoolInterface;
@@ -67,5 +68,17 @@ class BettingPoolRepository implements BettingPoolRepositoryInterface
         /** @var BettingPool $bettingPool */
         $bettingPool = $this->getById($bettingPoolId);
         return $bettingPool->delete();
+    }
+
+    /**
+     * Retrieve betting pool by code
+     *
+     * @param string $code
+     * @return BettingPoolInterface
+     * @throws ModelNotFoundException
+     */
+    public function getByCode(string $code): BettingPoolInterface
+    {
+        return BettingPool::where(BettingPoolInterface::CODE, $code)->firstOrFail();
     }
 }
