@@ -33,8 +33,15 @@ class CreateBettingPool extends Controller
             BettingPoolInterface::CODE => Str::random(6)
         ];
 
+        if ($result = $this->bettingPoolRepository->save($data)) {
+            $request->session()->flash(
+                'success',
+                sprintf('Novo bolao criado com sucesso! Codigo: %s', $data[BettingPoolInterface::CODE])
+            );
+        }
+
         return response()->json([
-            'success' => $this->bettingPoolRepository->save($data),
+            'success' => $result,
             'betting-pool-code' => $data[BettingPoolInterface::CODE]
         ]);
     }

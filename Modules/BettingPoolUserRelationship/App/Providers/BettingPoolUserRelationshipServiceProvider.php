@@ -9,6 +9,8 @@ use Modules\BettingPoolUserRelationship\Api\Data\BettingPoolUserRelationshipInte
 use Modules\BettingPoolUserRelationship\Models\BettingPoolUserRelationshipRepository;
 use Modules\BettingPoolUserRelationship\Models\Data\BettingPoolUserRelationship;
 use Modules\Framework\App\Model\ModuleBaseFiles\AbstractServiceProvider;
+use Modules\BettingPool\App\Models\Data\BettingPool;
+use Modules\BettingPoolUserRelationship\App\Observers\CreateRelationshipObserver;
 
 class BettingPoolUserRelationshipServiceProvider extends AbstractServiceProvider
 {
@@ -27,6 +29,12 @@ class BettingPoolUserRelationshipServiceProvider extends AbstractServiceProvider
         $this->app->bind(
             BettingPoolUserRelationshipRepositoryInterface::class,
             BettingPoolUserRelationshipRepository::class
+        );
+
+        BettingPool::observe(
+            [
+                CreateRelationshipObserver::class
+            ]
         );
     }
 }

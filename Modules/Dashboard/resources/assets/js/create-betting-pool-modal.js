@@ -15,9 +15,8 @@ document.querySelector('#btn-new-betting-pool').addEventListener('click', (e) =>
         'name': name.value,
         'type': type.value
     };
-    console.log(params);
     $.post('/createBettingPool', params)
     .then(response => {
-        console.log(response);
+        window.location.reload();
     })
 })
