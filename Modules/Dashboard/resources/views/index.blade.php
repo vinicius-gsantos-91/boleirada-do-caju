@@ -9,12 +9,12 @@
         @endif
     </div>
 
-<section class="bg-light">
-    <div class="container">
-        <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#new-betting-pool">Criar bolao</button>
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#join-by-code">Participar com codigo</button>
-    </div>
-</section>
+    <section>
+        <div class="container">
+            <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#new-betting-pool">Criar bolao</button>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#join-by-code">Participar com codigo</button>
+        </div>
+    </section>
 
     <div class="modal fade" id="new-betting-pool" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-dialog">
@@ -58,14 +58,26 @@
             </div>
         </div>
     </div>
-    <div>
-        @foreach($bettingPoolList as $bettingPool)
-            <span>Nome: {{$bettingPool['name']}}</span>
-            <span>Posiçao: {{$bettingPool['position']}}</span>
-            <span>Pontuaçao: {{$bettingPool['score']}}</span>
-        @endforeach
-    </div>
-
+    <section class="container mt-4">
+        <div class="row">
+            @forelse($bettingPoolList as $bettingPool)
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $bettingPool['name'] }}</h5>
+                            <p class="card-text mb-1">🏅 Posição: {{ $bettingPool['position'] }}</p>
+                            <p class="card-text">🎯 Pontuação: {{ $bettingPool['score'] }}</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Ver detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <div class="col-12">
+                    <div class="alert alert-info text-center">Nenhum bolão encontrado.</div>
+                </div>
+            @endforelse
+        </div>
+    </section>
 @endsection
 @section('scripts')
     <meta name="csrf-token" content="{{ csrf_token() }}">
