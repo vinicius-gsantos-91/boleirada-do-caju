@@ -10,12 +10,14 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Modules\BettingPool\Api\BettingPoolRepositoryInterface;
 use Modules\BettingPoolUserRelationship\Api\BettingPoolUserRelationshipRepositoryInterface;
 
 class Index extends Controller
 {
     public function __construct(
-        private readonly BettingPoolUserRelationshipRepositoryInterface $bettingPoolUserRelationshipRepository
+        private readonly BettingPoolUserRelationshipRepositoryInterface $bettingPoolUserRelationshipRepository,
+        private readonly BettingPoolRepositoryInterface $bettingPoolRepository
     ) {
     }
 
@@ -32,10 +34,21 @@ class Index extends Controller
             return Redirect::intended('/auth/login');
         }
 
+        $bettingPoolRelationshipList = $this->bettingPoolUserRelationshipRepository->getListByUser(Auth::user()->id);
+        $bettingPoolList = [];
+        foreach ($bettingPoolRelationshipList as $bettingPoolRelationship) {
+            $bettingPool = $this->bettingPoolRepository->getById($bettingPoolRelationship->getBettingPoolId());
+            $bettingPoolList[] = [
+                'name' => $bettingPool->getName(),
+                'score' => $bettingPoolRelationship->getScore(),
+                'position' => $bettingPoolRelationship->getPosition()
+            ];
+        }
+
         return view(
             'dashboard::index',
             [
-                'bettingPoolList' => $this->bettingPoolUserRelationshipRepository->getListByUser(Auth::user()->id)
+                'bettingPoolList' => $bettingPoolList
             ]
         );
     }

@@ -60,8 +60,9 @@
     </div>
     <div>
         @foreach($bettingPoolList as $bettingPool)
-            <span>Posiçao: {{$bettingPool->getPosition()}}</span>
-            <span>Pontuaçao: {{$bettingPool->getScore()}}</span>
+            <span>Nome: {{$bettingPool['name']}}</span>
+            <span>Posiçao: {{$bettingPool['position']}}</span>
+            <span>Pontuaçao: {{$bettingPool['score']}}</span>
         @endforeach
     </div>
 
