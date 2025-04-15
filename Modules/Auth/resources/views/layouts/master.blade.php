@@ -20,8 +20,6 @@
     <div class="collapse navbar-collapse" id="menuPrincipal">
         <ul class="navbar-nav ms-auto">
             @auth
-                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Ranking</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Sair</a></li>
             @endauth
         </ul>
@@ -43,9 +41,6 @@
                             <a class="nav-link" href="#">📅 Jogos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">📊 Classificação</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#">⚙️ Configurações</a>
                         </li>
                     </ul>
@@ -54,7 +49,7 @@
         @endauth
 
         <!-- Conteúdo -->
-        <main class="mt-3">
+        <main class="col-md-10 ms-sm-auto col-lg-10 px-4 mt-3">
             @yield('content')
         </main>
     </div>
