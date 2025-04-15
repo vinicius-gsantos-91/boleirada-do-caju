@@ -4,6 +4,8 @@
     <div>
         @if(session('success'))
           <div class="alert alert-success">{{ session('success') }}</div>
+        @elseif(session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
         @endif
     </div>
 
@@ -51,7 +53,7 @@
                     <input type="text" id="modal-code-input" class="form-control">
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-success">Acessar</button>
+                    <button class="btn btn-success" id="btn-join-betting-pool">Acessar</button>
                 </div>
             </div>
         </div>
@@ -61,4 +63,5 @@
 @section('scripts')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite('Modules/Dashboard/resources/assets/js/create-betting-pool-modal.js')
+    @vite('Modules/Dashboard/resources/assets/js/join-betting-pool-modal.js')
 @endsection
