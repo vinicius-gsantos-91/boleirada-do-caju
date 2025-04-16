@@ -41,7 +41,8 @@ class Index extends Controller
             $bettingPoolList[] = [
                 'name' => $bettingPool->getName(),
                 'score' => $bettingPoolRelationship->getScore(),
-                'position' => $bettingPoolRelationship->getPosition()
+                'position' => $bettingPoolRelationship->getPosition(),
+                'code' => $bettingPool->getCode()
             ];
         }
 

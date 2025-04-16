@@ -12,7 +12,7 @@ document.querySelector('#btn-join-betting-pool').addEventListener('click', (e) =
     e.preventDefault();
 
     $.post(
-        '/joinBettingPool',
+        '/bettingPool/join',
         {
             'code': code.value
         }

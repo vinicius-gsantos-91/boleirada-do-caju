@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\BettingPoolUserRelationship\Api;
 
-use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
+use Modules\BettingPoolUserRelationship\Api\Data\BettingPoolUserRelationshipInterface;
 
 interface BettingPoolUserRelationshipRepositoryInterface
 {
@@ -23,15 +23,15 @@ interface BettingPoolUserRelationshipRepositoryInterface
      * @param array $filters
      * @param int $paginate
      * @param int $page
-     * @return LengthAwarePaginator|Collection
+     * @return BettingPoolUserRelationshipInterface[]|Collection
      */
-    public function getList(array $filters, int $paginate, int $page = 0): LengthAwarePaginator|Collection;
+    public function getList(array $filters, int $paginate, int $page = 0): array|Collection;
 
     /**
      * Retrieve betting pool list by user id
      *
      * @param int $id
-     * @return LengthAwarePaginator
+     * @return BettingPoolUserRelationshipInterface[]
      */
-    public function getListByUser(int $id): LengthAwarePaginator;
+    public function getListByUser(int $id): array;
 }
