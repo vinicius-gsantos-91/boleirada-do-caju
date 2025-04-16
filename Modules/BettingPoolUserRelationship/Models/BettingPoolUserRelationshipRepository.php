@@ -35,34 +35,34 @@ class BettingPoolUserRelationshipRepository implements BettingPoolUserRelationsh
      * @param array $filters
      * @param int $paginate
      * @param int $page
-     * @return LengthAwarePaginator|Collection
+     * @return BettingPoolUserRelationshipInterface[]|Collection
      */
-    public function getList(array $filters, int $paginate = 10, int $page = 0): LengthAwarePaginator|Collection
+    public function getList(array $filters, int $paginate = 10, int $page = 0): array|Collection
     {
         if (!empty($filters[BettingPoolUserRelationshipInterface::BETTING_POOL_ID])) {
             return BettingPoolUserRelationship::where(
                 BettingPoolUserRelationshipInterface::BETTING_POOL_ID,
                 $filters[BettingPoolUserRelationshipInterface::BETTING_POOL_ID]
-            )->paginate($paginate);
+            )->getModels();
         }
 
         if (!empty($filters[BettingPoolUserRelationshipInterface::USER_ID])) {
             return BettingPoolUserRelationship::where(
                 BettingPoolUserRelationshipInterface::USER_ID,
                 $filters[BettingPoolUserRelationshipInterface::USER_ID]
-            )->paginate($paginate);
+            )->getModels();
         }
 
-        return BettingPoolUserRelationship::all()->forPage($page, $paginate);
+        return BettingPoolUserRelationship::all();
     }
 
     /**
      * Retrieve betting pool list by user id
      *
      * @param int $id
-     * @return LengthAwarePaginator
+     * @return BettingPoolUserRelationshipInterface[]
      */
-    public function getListByUser(int $id): LengthAwarePaginator
+    public function getListByUser(int $id): array
     {
         return $this->getList([BettingPoolUserRelationshipInterface::USER_ID => $id]);
     }

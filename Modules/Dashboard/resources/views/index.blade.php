@@ -9,10 +9,14 @@
         @endif
     </div>
 
-    <section>
-        <div class="container">
-            <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#new-betting-pool">Criar bolao</button>
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#join-by-code">Participar com codigo</button>
+    <section class="container">
+        <div class="row justify-content-md-end">
+            <div class="col-md-auto">
+                <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#new-betting-pool">Criar bolao</button>
+            </div>
+            <div class="col-md-auto">
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#join-by-code">Participar com codigo</button>
+            </div>
         </div>
     </section>
 
@@ -67,7 +71,7 @@
                             <h5 class="card-title">{{ $bettingPool['name'] }}</h5>
                             <p class="card-text mb-1">🏅 Posição: {{ $bettingPool['position'] }}</p>
                             <p class="card-text">🎯 Pontuação: {{ $bettingPool['score'] }}</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary">Ver detalhes</a>
+                            <a href="{{ route('bettingPool.view', ['code' => $bettingPool['code']]) }}" class="btn btn-sm btn-outline-primary">Ver detalhes</a>
                         </div>
                     </div>
                 </div>
